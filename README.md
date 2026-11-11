@@ -107,7 +107,56 @@ Case studies built with this method:
 - **Personal library organizer**: link when published
 - **A production SaaS for coaches and athletes**: client-confidential; described without name or data
 
-## 7. What I learned
+## 7. Where Aprendido stands out
+
+Most multi-agent tools are built to **generate** software: a request goes in, agents play their
+roles, code comes out. Aprendido is built for what comes after the first version: **operating and
+evolving several products in production, with AI agents doing the work and one person in charge.**
+That changes what the system has to get right.
+
+### The human decision is part of the architecture, not an option
+In many agent setups, review is done by another agent, and a person only appears if someone adds
+them. Here, the owner is a fixed level of the hierarchy. Agents prepare, test and review; only the
+owner merges. Everything waiting on the owner becomes a coded item on one board (D for decision,
+A for approval, AÇ for action), with a target answer time of two business days, so a whole list
+can be answered in a single line.
+
+### Coordination in layers, with no single bottleneck
+When one coordinator delegates, reviews and integrates everything, it becomes the bottleneck. In
+the single-coordinator model this method started from, that point handled only two to three
+integrations per session. Aprendido splits the load: one Maestro for all projects, one Project
+Manager per product, specialists by area, and narrow subagents for single tasks. Each level reads
+only a short card with what it owns and what it must never do.
+
+### Continuous management, not a one-off run
+A product in production needs a rhythm, not just a task list. Every week, each PM writes a
+one-page sprint report and the Maestro publishes a standard with what is ready to merge, in
+order, and how the AI budget is split across projects. Scheduled routines run in fixed sessions
+(session health, security and UX check-ups, support triage) and are renewed weekly to keep their
+context small.
+
+### Safety by construction
+Least privilege is not left to whoever writes the configuration. Every subagent lists the tools it
+may use and, separately, the write tools it is denied, and an automated test blocks any subagent
+that could write. Customer-facing agents produce drafts only; a person sends. Emails, issues and
+pull-request text are treated as data, never as instructions.
+
+### Cost and pace under control
+More parallel agents do not mean more output. Measured across 46 integrated work fronts, the
+safe operating point was three in parallel, with no evidence of gains above that. Aprendido starts
+at three and only grows after two weeks of stable throughput and no rise in corrections. The AI
+budget is split per project every week, so one product cannot consume the others' capacity.
+
+### A method that learns from its own mistakes
+Every incident is recorded with root cause, fix and guard: 95 so far. A rule only changes after a
+second occurrence with evidence, through a weekly improvement window that the owner approves.
+248 automated tests protect the method itself, so a new rule cannot silently break an old one.
+
+**In short:** other tools answer "how do I get agents to write code?". Aprendido answers "how do I
+run several products with agents, week after week, without losing control of quality, cost or
+decisions?".
+
+## 8. What I learned
 
 - **AI without hierarchy creates rework.** Parallel sessions with no owner of the flow duplicated work
   and overwrote each other. Giving each project one PM and each task one brief fixed most of it.
